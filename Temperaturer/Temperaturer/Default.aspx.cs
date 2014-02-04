@@ -23,6 +23,25 @@ namespace Temperaturer
                     var startT = int.Parse(startTemp.Text);
                     var slutT = int.Parse(slutTemp.Text);
                     var tempSt = int.Parse(tempSteg.Text);
+                   // Table1.Visible = true;
+
+                    TableRow headerRow = new TableRow();
+                    TableCell celcius = new TableCell();
+                    celcius.Text = "°C";
+                    TableCell fahrenheit = new TableCell();
+                    fahrenheit.Text = "°F";
+
+                    headerRow.Controls.Add(celcius);
+
+                    TableRow tRow = new TableRow();
+                    for (int i = 1; i < 8; i++)
+                    {
+                        TableCell tb = new TableCell();
+                        tb.Text = "grader"+i;
+                        tRow.Controls.Add(tb);
+                    }
+                    Table1.Rows.Add(headerRow);
+                    Table1.Rows.Add(tRow);
 
                     //    Outputkvitto.Visible = true;
                     //   Totalt.Text = String.Format("{0,10}{1,10:c}", "Totalt: ", test.Subtotal);
@@ -42,5 +61,7 @@ namespace Temperaturer
                 }
             }
         }
+
+     
     }
 }

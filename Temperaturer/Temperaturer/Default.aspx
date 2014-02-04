@@ -83,7 +83,7 @@
              <%-- Kommandoknapp --%>
 
             <div>
-                <asp:Button ID="Konvertera" runat="server" Text="Konvertera" />
+                <asp:Button ID="Konvertera" runat="server" Text="Konvertera" OnClick="Konvertera_Click" />
             </div>
                 <asp:Literal ID="Literal1" runat="server"></asp:Literal>
             
@@ -91,8 +91,8 @@
            
         </div>
          <div id="tabell">
-
-
+             <asp:Table ID="Table1" runat="server"></asp:Table>
+    
          </div>
     </div>
 </body>
