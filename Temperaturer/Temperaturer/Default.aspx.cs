@@ -33,15 +33,26 @@ namespace Temperaturer
 
                     headerRow.Controls.Add(celcius);
 
+                    Table1.Rows.Add(headerRow);
+
                     TableRow tRow = new TableRow();
+                   
                     for (int i = 1; i < 8; i++)
                     {
-                        TableCell tb = new TableCell();
-                        tb.Text = "grader"+i;
-                        tRow.Controls.Add(tb);
+                        TableRow tr = new TableRow();
+                        TableCell tb1 = new TableCell();
+                        TableCell tb2 = new TableCell();
+                        
+                        tb1.Text = "grader"+i;
+                        tb2.Text = "farenRumple" + i;
+
+                        tr.Controls.Add(tb1);
+                        tr.Controls.Add(tb2);
+
+                        Table1.Rows.Add(tr);
                     }
-                    Table1.Rows.Add(headerRow);
-                    Table1.Rows.Add(tRow);
+                    
+                    
 
                     //    Outputkvitto.Visible = true;
                     //   Totalt.Text = String.Format("{0,10}{1,10:c}", "Totalt: ", test.Subtotal);
