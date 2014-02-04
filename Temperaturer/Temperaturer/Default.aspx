@@ -8,40 +8,89 @@
     <link href="~/Content/Style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <h1>Konvertera Temperaturer</h1>
-    <form id="form1" runat="server">
-     
-    <!-- Starttemperatur-->
-    <div class="editor-label">
-        <asp:Label ID="startTempLabel" runat="server" Text="Starttemperatur" 
-            AssociatedControlID="startTemp"></asp:Label>
-    </div>
-    <div class="editor-field">  
-        <asp:TextBox ID="startTemp" runat="server"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-            ErrorMessage="Starttemperatur måste anges" 
-            ControlToValidate="startTemp" SetFocusOnError="True" Text="*" Display="Dynamic"></asp:RequiredFieldValidator>
-        <asp:CompareValidator ID="CompareValidator1" runat="server" 
-            ErrorMessage="Starttemperatur måste anges i hela grader" ControlToValidate="startTemp" 
-            Operator="DataTypeCheck" Type="Integer" SetFocusOnError="True" Display="Dynamic">
-        </asp:CompareValidator>
-     </div>
+    <div id="page">
+        <div id="container">
+            <h1>Konvertera Temperaturer</h1>
+            <form id="form1" runat="server">
+            <%-- Felmeddelanden --%>
+                <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="validation-summary-errors"
+                   HeaderText="Fel inträffade. Korrigera och försök igen." />    
+            <!-- Starttemperatur-->
+            <div class="editor-label">
+                <asp:Label ID="startTempLabel" runat="server" Text="Starttemperatur" 
+                    AssociatedControlID="startTemp"></asp:Label>
+            </div>
+            <div class="editor-field">  
+                <asp:TextBox ID="startTemp" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                    ErrorMessage="Starttemperatur måste anges" 
+                    ControlToValidate="startTemp" SetFocusOnError="True" Text="*" Display="Dynamic"></asp:RequiredFieldValidator>
+                <asp:CompareValidator ID="CompareValidator1" runat="server" 
+                    ErrorMessage="Starttemperatur måste anges i hela grader" ControlToValidate="startTemp" 
+                    Operator="DataTypeCheck" Type="Integer" SetFocusOnError="True" Display="Dynamic">
+                </asp:CompareValidator>
+                <asp:RangeValidator ID="RangeValidator1" runat="server"  CssClass="error" 
+                    ErrorMessage="Värdet måste ligga mellan 1-100." Text="*" 
+                    MaximumValue="100" MinimumValue="1" ControlToValidate="startTemp"></asp:RangeValidator>
+             </div>
+      
+             <%-- Sluttemperatur --%>
+            <div class="editor-label">
+                <asp:Label ID="slutTempLabel" runat="server" Text="Sluttemperatur" 
+                    AssociatedControlID="slutTemp"></asp:Label>
+            </div>
+            <div class="editor-field">  
+                <asp:TextBox ID="slutTemp" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                    ErrorMessage="Sluttemperatur måste anges" CssClass="error"
+                    ControlToValidate="slutTemp" SetFocusOnError="True" Text="*" Display="Dynamic"></asp:RequiredFieldValidator>
+                <asp:CompareValidator ID="CompareValidator2" runat="server" 
+                    ErrorMessage="Sluttemperatur måste anges i hela grader" 
+                    ControlToValidate="slutTemp" CssClass="error"
+                    Operator="DataTypeCheck" Type="Integer" SetFocusOnError="True" Display="Dynamic">
+                </asp:CompareValidator>
+                <asp:CompareValidator ID="CompareValidator3" runat="server" 
+                    ErrorMessage="Sluttemperaturen får inte vara lägre än mintemperaturen" 
+                    ControlToValidate="slutTemp" CssClass="error" 
+                    Operator="GreaterThan" Type="Integer" SetFocusOnError="True" Display="Dynamic" ControlToCompare="startTemp">
+                </asp:CompareValidator>
+                <asp:RangeValidator ID="RangeValidator2" runat="server"  CssClass="error" 
+                    ErrorMessage="Värdet måste ligga mellan 1-100." Text="*" 
+                    MaximumValue="100" MinimumValue="1" ControlToValidate="slutTemp"></asp:RangeValidator>
+             </div>
 
-     <!-- Sluttemperatur-->
-    <div class="editor-label">
-        <asp:Label ID="slutTempLabel" runat="server" Text="Sluttemperatur" 
-            AssociatedControlID="slutTemp"></asp:Label>
+            <%-- Temperatursteg --%>
+            <div class="editor-label">
+                <asp:Label ID="Label1" runat="server" Text="Temperatursteg" 
+                    AssociatedControlID="slutTemp"></asp:Label>
+            </div>
+            <div class="editor-field">  
+                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+                    ErrorMessage="Sluttemperatur måste anges" 
+                    ControlToValidate="slutTemp" SetFocusOnError="True" Text="*" Display="Dynamic"></asp:RequiredFieldValidator>
+                <asp:CompareValidator ID="CompareValidator4" runat="server" 
+                    ErrorMessage="Sluttemperatur måste anges i hela grader" ControlToValidate="slutTemp" 
+                    Operator="DataTypeCheck" Type="Integer" SetFocusOnError="True" Display="Dynamic">
+                </asp:CompareValidator>
+             </div>
+            <%-- Radioknappar --%>
+                <div class="editor-label">
+                <asp:Label ID="Typ" runat="server" Text="Typ av konvertering" ></asp:Label>
+                </div>
+                
+                <asp:RadioButton ID="CtoF" runat="server" />
+                <asp:RadioButton ID="FtoC" runat="server" />
+
+             <%-- Kommandoknapp --%>
+
+            <div>
+                <asp:Button ID="Konvertera" runat="server" Text="Konvertera" />
+            </div>
+                <asp:Literal ID="Literal1" runat="server"></asp:Literal>
+
+            </form>
+        </div>
     </div>
-    <div class="editor-field">  
-        <asp:TextBox ID="slutTemp" runat="server"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
-            ErrorMessage="Sluttemperatur måste anges" 
-            ControlToValidate="slutTemp" SetFocusOnError="True" Text="*" Display="Dynamic"></asp:RequiredFieldValidator>
-        <asp:CompareValidator ID="CompareValidator2" runat="server" 
-            ErrorMessage="Sluttemperatur måste anges i hela grader" ControlToValidate="slutTemp" 
-            Operator="DataTypeCheck" Type="Integer" SetFocusOnError="True" Display="Dynamic">
-        </asp:CompareValidator>
-     </div>
-    </form>
 </body>
 </html>
