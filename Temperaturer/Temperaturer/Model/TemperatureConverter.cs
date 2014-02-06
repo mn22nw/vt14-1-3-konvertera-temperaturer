@@ -16,10 +16,8 @@ namespace Temperaturer.Model
 
         public static int FahrenheitToCelcius(int degreesF)
         {
-            // Convert argument to double for calculations. 
             double fahrenheit = Convert.ToDouble(degreesF);
 
-            // Convert Fahrenheit to Celsius. 
             double celsius = (fahrenheit - 32) * 5 / 9;
 
             return Convert.ToInt32(celsius);

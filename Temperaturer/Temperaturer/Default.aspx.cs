@@ -28,6 +28,7 @@ namespace Temperaturer
 
 
                     TableRow headerRow = new TableRow();
+                    headerRow.CssClass = "headerRow";
                     TableCell celcius = new TableCell();
                     celcius.Text = "°C";
                     TableCell fahrenheit = new TableCell();
