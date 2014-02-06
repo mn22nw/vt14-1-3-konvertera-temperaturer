@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
 namespace Temperaturer
 {
     public partial class Default : System.Web.UI.Page
@@ -24,6 +25,10 @@ namespace Temperaturer
                     var slutT = int.Parse(slutTemp.Text);
                     var tempSt = int.Parse(tempSteg.Text);
                    // Table1.Visible = true;
+
+
+                    Model.TemperatureConverter.CelciusToFahrenheit(5);
+
 
                     TableRow headerRow = new TableRow();
                     TableCell celcius = new TableCell();

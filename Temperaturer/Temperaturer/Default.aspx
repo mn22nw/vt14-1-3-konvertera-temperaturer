@@ -77,8 +77,8 @@
                 <asp:Label ID="Typ" runat="server" Text="Typ av konvertering" ></asp:Label>
                 </div>
                 
-                <asp:RadioButton ID="radio1" runat="server" GroupName="radiob" />
-                <asp:RadioButton ID="radio2" runat="server" GroupName="radiob" />
+                <asp:RadioButton ID="radio1" runat="server" CssClass="radio" GroupName="radiob" Text="Celcius till Fahrenheit"/>
+                <asp:RadioButton ID="radio2" runat="server" CssClass="radio" GroupName="radiob" Text="Fahrenheit till Celcius"/>
 
              <%-- Kommandoknapp --%>
 

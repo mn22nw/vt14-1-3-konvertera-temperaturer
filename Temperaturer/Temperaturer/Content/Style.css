@@ -1,10 +1,18 @@
 ﻿body {
 }
 
+#Konvertera {
+    margin-top:25px;
+}
+
 #page {
     width: 70%;
     margin:0 auto;
 
+}
+.radio { 
+    margin-top:15px;
+    display:block;
 }
 #container {
     margin:0 auto;
