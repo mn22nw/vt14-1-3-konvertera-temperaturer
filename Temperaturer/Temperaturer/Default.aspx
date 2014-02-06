@@ -62,15 +62,15 @@
             <div class="editor-field">  
                 <asp:TextBox ID="tempSteg" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
-                    ErrorMessage="Sluttemperatur måste anges" CssClass="error" 
+                    ErrorMessage="Temperatursteg måste anges" CssClass="error" 
                     ControlToValidate="tempSteg" SetFocusOnError="True" Text="*" Display="Dynamic"></asp:RequiredFieldValidator>
                 <asp:CompareValidator ID="CompareValidator4" runat="server" CssClass="error" 
-                    ErrorMessage="Sluttemperatur måste anges i hela grader" Text="*" ControlToValidate="tempSteg" 
+                    ErrorMessage="Temperatursteg måste anges i hela grader" Text="*" ControlToValidate="tempSteg" 
                     Operator="DataTypeCheck" Type="Integer" SetFocusOnError="True" Display="Dynamic">
                 </asp:CompareValidator>
                 <asp:RangeValidator ID="RangeValidator1" runat="server"  CssClass="error" 
                     ErrorMessage="Temperatursteget måste ligga mellan 1-100." Text="*" 
-                    MaximumValue="100" MinimumValue="1" ControlToValidate="tempSteg"></asp:RangeValidator>
+                    MaximumValue="100" MinimumValue="1" ControlToValidate="tempSteg" SetFocusOnError="True"></asp:RangeValidator>
              </div>
             <%-- Radioknappar --%>
                 <div class="editor-label">
@@ -85,15 +85,13 @@
             <div>
                 <asp:Button ID="Konvertera" runat="server" Text="Konvertera" OnClick="Konvertera_Click" />
             </div>
-                <asp:Literal ID="Literal1" runat="server"></asp:Literal>
-            
+
             </form>
            
         </div>
-         <div id="tabell">
-             <asp:Table ID="Table1" runat="server"></asp:Table>
-    
-         </div>
+         
+             <asp:Table ID="Table1" runat="server" Visible="false"></asp:Table>
+
     </div>
 </body>
 </html>

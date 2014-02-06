@@ -7,8 +7,9 @@
 .headerRow {
     font-weight:bold;
     font-size:2em;
-    border-bottom:2px solid #000;
 }
+tr:nth-child(even) {background: #e5e5e5}
+tr:nth-child(odd) {background: #FFF}
 #page {
     width: 70%;
     margin:0 auto;
@@ -33,19 +34,16 @@
     color:red;
 }
 
-#tabell {
+table { border-collapse:collapse }
+#Table1 {
     position:absolute;
     top:90px;
     left:600px;
-    margin-left:25px;
     width:400px;
     height:auto;
     border:1px solid #808080;
     background:#f5f5f5;
-}
-#Table1 {
     border:1px solid #000;
     text-align:center;
-    width:400px;
     min-height:400px;
 }
